@@ -21,8 +21,8 @@ class LuwePromo extends Migration
             $table->string('gambar_promo');
             $table->string('datatarget_promo');
             $table->string('snk_promo');
-            $table->string('kode_promo');
-            $table->string('kuota_promo');
+            // $table->string('kode_promo');
+            // $table->string('kuota_promo');
             $table->timestamps();
         });
     }

@@ -117,7 +117,7 @@
                             <div class="col-md-3 col-sm-6">
                                 <div class="sf-team">
                                     <div class="thumb">
-                                        <a data-toggle="modal" data-target="#{{$p->id}}" href="#"><img src="{{asset('../storage/assets_home/images/promo/'.$p->gambar_promo)}}" alt=""></a>
+                                        <a data-toggle="modal" data-target="#promo{{$p->id}}" href="#"><img src="{{asset('../storage/assets_home/images/promo/'.$p->gambar_promo)}}" alt=""></a>
                                     </div>
                                     <div class="text-col">
                                         <h3>{{$p->nama_promo}}</h3>
@@ -126,11 +126,11 @@
                                 </div>
 
                             </div>
-                            <div class="modal fade" id="{{$p->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="promo{{$p->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="{{$p->id}}">{{$p->nama_promo}}
+                                            <h5 class="modal-title" id="promo{{$p->id}}">{{$p->nama_promo}}
                                             </h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
@@ -185,16 +185,17 @@
                             Galeri Menu Favorit
                         </h2>
                         <p class="title-caption text-center">Membeli kuliner di kota malang <span>Mudah</span> dengan
-                            <span class="luwe01">Luwe</span></p>
+                            <span class="luwe01">Luwe</span>
+                        </p>
                     </div>
                     <div class="gal-container clearfix">
                         @foreach ($gallery as $gal)
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#{{$gal->gallery_data_target}}">
+                                <a href="#" data-toggle="modal" data-target="#gal{{$gal->id}}">
                                     <img src="{{asset('../storage/assets_home/images/gallery/'.$gal->gallery_image)}}" alt="">
                                 </a>
-                                <div class="modal fade" id="{{$gal->gallery_data_target}}" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal{{$gal->id}}" tabindex="-1" role="dialog">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
@@ -234,13 +235,13 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="blog-block">
                                     <div class="blog-img-box">
-                                        <img src="{{asset('../storage/assets_home/images/UserImage/'.$art->user_image)}}" width="700" height="350" alt="" />
+                                        <img src="{{asset('../storage/assets_home/images/UserImage/'.$art->user->image)}}" width="700" height="350" alt="" />
                                         <div class="overlay">
                                             <a href="{{$art->user_instagram}}"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
                                     <div class="blog-dit">
-                                        <h1>{{$art->user_name}}</h1>
+                                        <h1>{{$art->user->name}}</h1>
                                         <p>{{$art->user_comment}}</p>
                                         <h4>{{$art->created_at}}</h4>
                                     </div>

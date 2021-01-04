@@ -16,7 +16,6 @@ class LuweGallery extends Migration
         Schema::create('galleries', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('gallery_item_name');
-            $table->string('gallery_data_target');
             $table->string('gallery_image');
             $table->string('gallery_deskripsi');
             $table->timestamps();
