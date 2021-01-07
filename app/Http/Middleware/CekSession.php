@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\Guard;
 
 use Closure;
 
-class CekLogin
+class CekSession
 {
     /**
      * Handle an incoming request.
@@ -23,12 +23,8 @@ class CekLogin
     public function handle($request, Closure $next)
     {
 
-        if (!$this->user->guest()) {
-            if ($request->ajax()) {
-                return response('Unauthorized.', 401);
-            } else {
-                return redirect('/');
-            }
+        if (!$request->user()) {
+            return response('Unauthorized.', 401);
         }
         return $next($request);
     }

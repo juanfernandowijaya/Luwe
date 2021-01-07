@@ -12,10 +12,38 @@
 */
 
 use Spatie\Permission\Models\Role;
-// Route::get('/', function () {
-//     return view('test');
-// });
+
 Route::get('/', 'HomeController@index');
+
+Route::get('/home', 'HomeController@index');
+Route::get('/login', 'UserAuth@index')->middleware('CekLogin')->name('login');
+Route::post('/login', 'UserAuth@login');
+Route::get('/register', 'UserAuth@IndexRegister');
+Route::post('/register', 'UserAuth@SubmitRegister');
+
+//admin
+Route::get('/admin', 'AdminController@index');
+
+//route normal user
+Route::middleware('auth')->group(function () {
+    Route::get('/account', 'Account@Index');
+});
+
+//route auth jika tidak login tidak bisa akses panel admin
+Route::middleware('auth', 'role:admin')->group(function () {
+    Route::get('/admin/rekomendasi', 'ProductMenuController@MasterRekomendasi');
+    Route::get('/admin/promo', 'ProductMenuController@MasterPromo');
+    Route::get('/admin/gallery', 'ProductMenuController@MasterGallery');
+    Route::get('/admin/article', 'ProductMenuController@MasterArticle');
+    Route::get('/admin/usersetting', 'AdminController@userSetting');
+    Route::post('/admin/usersetting', 'AdminController@userChangeAuthority');
+});
+
+Route::get('/account/test', 'Account@test');
+Route::get('/logout', 'UserAuth@logout');
+
+
+
 // Route::get('/', function () {
 //     //auth()->user()->assignRole('admin');
 //     //auth()->user()->removeRole('admin');
@@ -36,30 +64,8 @@ Route::get('/', 'HomeController@index');
 // $role->givePermissionTo('view post');
 // dd($user->can('view post'));
 // });
-Route::get('/home', 'HomeController@index');
-Route::get('/login', 'UserAuth@index')->middleware('CekLogin');
-Route::post('/login', 'UserAuth@login');
-Route::get('/register', 'UserAuth@IndexRegister');
-Route::post('/register', 'UserAuth@SubmitRegister');
-Route::get('/account', 'Account@Index')->middleware('CekLogin');
-
-Route::get('/admin', 'AdminController@index');
-//route group
-// Route::middleware('role:admin')->group(function () {
-//     //routing yang menggunakan middleware sama bisa dijadikan satu
-
-// });
-
 
 
 // Route::get('/account', function(){
 //     if(auth()->user()->hasRole('admin'))
-
-
 // });
-Route::get('/account/test', 'Account@test');
-Route::get('/logout', 'UserAuth@logout');
-
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');

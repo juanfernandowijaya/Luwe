@@ -14,12 +14,31 @@ class CreateAdminSeeder extends Seeder
     {
         //buat user admin
         $user = User::create([
-            'name' => 'admin',
+            'name' => 'JuanFW',
             'image' => 'billie.jpg',
             'email' => 'juan@gmail.com',
             'password' => bcrypt(1234),
             'isActive' => 1,
         ]);
         $user->assignRole('admin');
+
+        //buat user biasa
+        $user = User::create([
+            'name' => 'Harrya',
+            'image' => 'harya.jpg',
+            'email' => 'harya@gmail.com',
+            'password' => bcrypt(1234),
+            'isActive' => 1,
+        ]);
+        $user->assignRole('user');
+
+        $user = User::create([
+            'name' => 'Jsven',
+            'image' => 'jsven.jpg',
+            'email' => 'jsven@gmail.com',
+            'password' => bcrypt(1234),
+            'isActive' => 1,
+        ]);
+        $user->assignRole('user');
     }
 }

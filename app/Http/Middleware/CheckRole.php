@@ -18,7 +18,7 @@ class CheckRole
     public function handle($request, Closure $next)
     {
         if (!auth()->user()->hasRole('admin')) {
-            return view('/home');
+            return view('/');
         }
         return $next($request);
     }

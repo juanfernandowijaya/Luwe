@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         //call untuk memangil seeder dibawah saat di run
         $this->call(RoleTableSeeder::class);
         $this->call(CreateAdminSeeder::class);
+        // $this->call(CreateUserSeeder::class); error mbuh dimana
         $this->call(RekomendasiSeeder::class);
         $this->call(PromoSeeder::class);
         $this->call(KodePromoSeeder::class);

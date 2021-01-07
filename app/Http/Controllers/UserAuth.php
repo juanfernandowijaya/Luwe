@@ -62,6 +62,6 @@ class UserAuth extends Controller
     public function logout(Request $request)
     {
         $request->session()->flush();
-        return redirect('oke');
+        return redirect('/');
     }
 }

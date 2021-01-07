@@ -79,7 +79,7 @@
                                     <li><a href="/login"> Login</a></li>
                                     @endguest
                                     @auth
-                                    <!-- <li><a href="/account"> Hello User</a></li> -->
+                                    <li><a href="/account">Hi, {{auth()->user()->name}}</a></li>
                                     @endauth
                                 </ul>
                             </div>
