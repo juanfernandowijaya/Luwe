@@ -8,6 +8,8 @@ use App\Promo;
 use App\KodePromo;
 use App\Gallery;
 use App\Article;
+use App\ProductList;
+use App\ShopList;
 
 class HomeController extends Controller
 {
@@ -35,5 +37,16 @@ class HomeController extends Controller
         $gallery =  Gallery::all();
         $article = Article::all();
         return view('home/home', ['rekomendasi' => $rekomendasi, 'promo' => $promo, 'kode_promo' => $kode_promo, 'gallery' => $gallery, 'article' => $article]);
+    }
+    public function RecommendationIndex()
+    {
+        $shopList = ShopList::all();
+        $productList = ProductList::all();
+        return view('home/rekomendasi', ['productList' => $productList, 'shopList' => $shopList]);
+    }
+    public function detailItem(Request $request)
+    {
+        $shopList = ShopList::find($request->id);
+        return view('home/detail_product', compact('shopList'));
     }
 }

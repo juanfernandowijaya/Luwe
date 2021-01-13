@@ -121,7 +121,7 @@
                                     </div>
                                     <div class="text-col">
                                         <h3>{{$p->nama_promo}}</h3>
-                                        <p>..</p>
+                                        <p>{{$p->deskripsi_promo}}</p>
                                     </div>
                                 </div>
 

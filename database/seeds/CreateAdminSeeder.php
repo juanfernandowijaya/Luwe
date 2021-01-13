@@ -15,18 +15,18 @@ class CreateAdminSeeder extends Seeder
         //buat user admin
         $user = User::create([
             'name' => 'JuanFW',
-            'image' => 'billie.jpg',
+            'image' => 'juan.jpg',
             'email' => 'juan@gmail.com',
             'password' => bcrypt(1234),
             'isActive' => 1,
         ]);
-        $user->assignRole('admin');
+        $user->assignRole('admin', 'user');
 
         //buat user biasa
         $user = User::create([
-            'name' => 'Harrya',
-            'image' => 'harya.jpg',
-            'email' => 'harya@gmail.com',
+            'name' => 'Billie',
+            'image' => 'billie.jpg',
+            'email' => 'billie@gmail.com',
             'password' => bcrypt(1234),
             'isActive' => 1,
         ]);

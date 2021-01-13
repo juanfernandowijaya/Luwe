@@ -44,4 +44,8 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Article');
     }
+    public function OrderHistorys()
+    {
+        return $this->hasMany('App\OrderHistory');
+    }
 }

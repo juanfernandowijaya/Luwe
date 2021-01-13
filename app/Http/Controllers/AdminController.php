@@ -6,6 +6,8 @@ use App\User;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Validation\Rule;
+use ShopListSeeder;
+use App\ShopList;
 
 class AdminController extends Controller
 {
@@ -30,5 +32,10 @@ class AdminController extends Controller
             $user->syncRoles('user');
         }
         return redirect('/admin/usersetting');
+    }
+    public function shopList()
+    {
+        $shop =  ShopList::all();
+        return view('account/accountSetting/master_shopList', ['shop' => $shop]);
     }
 }

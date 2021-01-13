@@ -20,5 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(KodePromoSeeder::class);
         $this->call(GallerySeeder::class);
         $this->call(ArtikelSeeder::class);
+        $this->call(ShopListSeeder::class);
+        $this->call(ProductListSeeder::class);
+        $this->call(ProductImageSeeder::class);
     }
 }
