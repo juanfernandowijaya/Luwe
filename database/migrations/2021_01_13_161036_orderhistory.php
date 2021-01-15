@@ -16,6 +16,7 @@ class Orderhistory extends Migration
         Schema::create('orderhistorys', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('shop_id');
             $table->string('user_order_desc');
             $table->string('user_order_type');
             $table->string('user_order_paymentmethod');

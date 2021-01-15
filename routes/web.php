@@ -30,6 +30,7 @@ Route::get('/admin', 'AdminController@index');
 //route normal user
 Route::middleware('auth')->group(function () {
     Route::get('/account', 'Account@Index');
+    Route::get('order', 'Account@Transaction');
     Route::POST('/order', 'Account@Order');
 });
 

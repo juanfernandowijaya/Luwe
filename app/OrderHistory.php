@@ -11,4 +11,8 @@ class OrderHistory extends Model
     {
         return $this->belongsTo('App\User');
     }
+    public function shoplist()
+    {
+        return $this->belongsTo('App\ShopList', 'shop_id');
+    }
 }

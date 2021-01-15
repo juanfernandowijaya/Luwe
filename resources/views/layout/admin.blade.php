@@ -113,7 +113,7 @@
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="/order">
                     <i class="fas fa-fw fa-dolly"></i>
                     <span>Transactions</span></a>
             </li>

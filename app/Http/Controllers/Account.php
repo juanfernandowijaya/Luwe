@@ -42,6 +42,11 @@ class Account extends Controller
         }
         return redirect('user/account');
     }
+    public function Transaction()
+    {
+        $order = OrderHistory::all();
+        return view('UserMenu/userTransaction', ['order' => $order]);
+    }
     public function Order(Request $request)
     {
         $request->validate([
@@ -52,6 +57,7 @@ class Account extends Controller
         ]);
         $order = new OrderHistory;
         $order->user_id = $request->user_id;
+        $order->shop_id = $request->shop_id;
         $order->user_order_desc = $request->order_desc;
         $order->user_order_type =  $request->order_type;
         $order->user_order_paymentmethod = $request->order_payment;

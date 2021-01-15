@@ -11,4 +11,8 @@ class ShopList extends Model
     {
         return $this->hasMany('App\ProductList', 'shop_id');
     }
+    public function OrderHistorys()
+    {
+        return $this->hasMany('App\OrderHistory');
+    }
 }

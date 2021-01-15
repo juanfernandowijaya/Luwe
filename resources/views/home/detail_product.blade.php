@@ -107,12 +107,19 @@
         </table>
         <!-- Menu Table -->
     </div>
-    <button type="button" data-toggle="modal" data-target="#order" class="btn btn-primary btn-lg btn-block">Block level button</button>
+    @auth
+    <button type="button" data-toggle="modal" data-target="#order" class="btn btn-primary btn-lg btn-block">Order Now</button>
+    @endauth
+    @guest
+    <a href="/login">
+        <button type="button" class="btn btn-primary btn-lg btn-block">Login to Order !!</button>
+    </a>
+    @endguest
     <div class="modal fade" id="order" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New Gallery Image</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">{{$shopList->shop_name}}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -120,9 +127,15 @@
                 <div class="modal-body">
                     <form method="POST" action="/order" enctype="multipart/form-data">
                         @csrf
+                        @auth
                         <div class="form-group" hidden>
                             <label for="user_id" style="font-size:16px;color:black;font-weight:700">user id</label>
                             <input class="form-control" type="text" name="user_id" id="user_id" placeholder="Order" value="{{Auth::user()->id}}">
+                        </div>
+                        @endauth
+                        <div class="form-group" hidden>
+                            <label for="shop_id" style="font-size:16px;color:black;font-weight:700">shop id</label>
+                            <input class="form-control" type="text" name="shop_id" id="shop_id" placeholder="Order" value="{{$shopList->id}}">
                         </div>
                         <div class="form-group">
                             <label for="order_desc" style="font-size:16px;color:black;font-weight:700">Order Description</label>
